@@ -1,0 +1,236 @@
+/* JANU LLC — draft site styles
+   Brand brown #5C3F31 sampled from the 2013 letterhead (wordmark and header rule). */
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/SourceSans3-var.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("fonts/EBGaramond-var.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #F8F4EC;
+  --paper-deep: #F1EADD;
+  --brown: #5C3F31;
+  --ink: #2B231E;
+  --muted: #6A5A4F;
+  --hairline: #DDD1C1;
+  --sans: "Source Sans 3", Calibri, Carlito, "Segoe UI", Verdana, sans-serif;
+  --serif: "EB Garamond", Garamond, "Times New Roman", serif;
+  --wrap: 68rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+/* Faded compass watermark, lower right — as on the letterhead */
+body::after {
+  content: "";
+  position: absolute;
+  right: -8rem;
+  bottom: 2rem;
+  width: 38rem;
+  height: 43.5rem;
+  background: url("janu-compass.png") no-repeat center / contain;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+header, main, footer { position: relative; z-index: 1; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.skip {
+  position: absolute; left: -999px; top: 0;
+  background: var(--brown); color: var(--paper);
+  padding: .5rem 1rem; z-index: 10;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Header */
+.header-inner { padding-top: 2rem; padding-bottom: 1.25rem; }
+.brand {
+  display: inline-flex; align-items: center; gap: 1.25rem;
+  text-decoration: none; color: var(--brown);
+}
+.brand:focus-visible { outline: 2px solid var(--brown); outline-offset: 6px; }
+.brand-mark { width: 104px; height: auto; display: block; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.wordmark {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: .32em;
+  margin-right: -.32em;
+  color: var(--brown);
+}
+.brand-sub {
+  margin-top: .45rem;
+  font-size: .8125rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rule { border: 0; border-top: 2px solid var(--brown); margin: 0; }
+
+/* Intro */
+.intro { padding-top: 6.5rem; padding-bottom: 4.5rem; }
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: .8125rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--brown); font-weight: 600;
+}
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.2vw, 4.25rem);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  max-width: 18ch;
+}
+.lead {
+  margin: 1.75rem 0 0;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  color: var(--muted);
+  max-width: 34rem;
+}
+
+/* Finding */
+.finding {
+  background: var(--paper-deep);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: 5rem 0 5.25rem;
+}
+.label {
+  margin: 0 0 1.5rem;
+  font-family: var(--sans);
+  font-size: .8125rem; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--brown);
+}
+.finding-text {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.25;
+  color: var(--brown);
+  max-width: 26ch;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--brown);
+}
+.finding-note { margin: 1.75rem 0 0; padding-left: 1.5rem; color: var(--muted); font-size: 1.0625rem; }
+
+/* Two-column sections */
+.work, .areas {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 2rem;
+  padding-top: 4.5rem; padding-bottom: 1rem;
+}
+.areas { padding-bottom: 4.5rem; }
+.col-head .label { margin: .35rem 0 0; }
+.col-body { max-width: 38rem; }
+.col-body p { margin: 0 0 1rem; }
+.col-body p:last-child { margin-bottom: 0; }
+.work { border-bottom: 0; }
+.areas .col-body { border-top: 1px solid var(--hairline); }
+.area-list { list-style: none; margin: 0; padding: 0; }
+.area-list li {
+  display: flex; align-items: baseline; gap: 1.25rem;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--serif);
+  font-size: 1.6rem; line-height: 1.3;
+}
+.area-num {
+  font-family: var(--sans);
+  font-size: .8125rem; letter-spacing: .12em;
+  color: var(--brown); font-weight: 600;
+  min-width: 2rem;
+}
+
+/* Close / signature */
+.close { padding-top: 2rem; padding-bottom: 6rem; }
+.signature { margin-left: 16rem; }
+.signature p { margin: 0; }
+.sig-name { font-family: var(--serif); font-size: 1.6rem; color: var(--ink); }
+.sig-role, .sig-co { color: var(--muted); font-size: 1rem; }
+
+/* Footer */
+.footer-inner {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 2rem;
+  padding-top: 1.25rem; padding-bottom: 2.5rem;
+  font-size: .9375rem; color: var(--muted);
+}
+.footer-inner p { margin: 0; }
+.footer-name { color: var(--brown); letter-spacing: .2em; }
+
+/* Tablet */
+@media (max-width: 900px) {
+  .work, .areas { grid-template-columns: 1fr; gap: .75rem; }
+  .col-head .label { margin: 0; }
+  .areas .col-body { border-top: 1px solid var(--hairline); }
+  .signature { margin-left: 0; }
+  .intro { padding-top: 4.5rem; padding-bottom: 3.5rem; }
+  body::after { width: 28rem; height: 32rem; right: -7rem; }
+}
+
+/* Phone */
+@media (max-width: 520px) {
+  body { font-size: 1.0625rem; }
+  .wrap { padding: 0 1.25rem; }
+  .header-inner { padding-top: 1.25rem; padding-bottom: 1rem; }
+  .brand { gap: .9rem; }
+  .brand-mark { width: 68px; }
+  .wordmark { font-size: 1.6rem; }
+  .brand-sub { font-size: .75rem; }
+  .intro { padding-top: 3.25rem; padding-bottom: 2.75rem; }
+  .finding { padding: 3.25rem 0 3.5rem; }
+  .finding-text { padding-left: 1rem; }
+  .finding-note { padding-left: 1rem; }
+  .work, .areas { padding-top: 3rem; }
+  .areas { padding-bottom: 3rem; }
+  .area-list li { font-size: 1.4rem; }
+  .close { padding-bottom: 4rem; }
+  body::after { width: 20rem; height: 23rem; right: -6rem; bottom: 1rem; }
+  .footer-inner { flex-direction: column; }
+}
+
+@media print {
+  body::after { display: none; }
+  .finding { background: none; }
+}
