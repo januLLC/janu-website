@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 763.2 763.2" fill="none" role="img" aria-label="JANU LLC">
+<g transform="translate(381.6 399.6)">
+<g fill="#5C3F31" fill-rule="nonzero">
+  <g>
+    <path d="M 0 -336 L -48 -130 L 0 -20 L 48 -130 Z"/>
+    <path d="M 300 0 L 130 -48 L 20 0 L 130 48 Z"/>
+    <path d="M 0 300 L 48 130 L 0 20 L -48 130 Z"/>
+    <path d="M -300 0 L -130 48 L -20 0 L -130 -48 Z"/>
+    <path d="M 141.421 -141.421 L 55.154 -100.409 L 14.142 -14.142 L 100.409 -55.154 Z"/>
+    <path d="M 141.421 141.421 L 100.409 55.154 L 14.142 14.142 L 55.154 100.409 Z"/>
+    <path d="M -141.421 141.421 L -55.154 100.409 L -14.142 14.142 L -100.409 55.154 Z"/>
+    <path d="M -141.421 -141.421 L -100.409 -55.154 L -14.142 -14.142 L -55.154 -100.409 Z"/>
+  </g>
+  <g>
+    <path d="M 28 0 A 28 28 0 1 1 -28 0 A 28 28 0 1 1 28 0 Z" fill-rule="evenodd"/>
+  </g>
+</g>
+</g>
+</svg>
